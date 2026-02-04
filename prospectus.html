@@ -56,19 +56,22 @@
         .lang-selector select {
             appearance: none;
             -webkit-appearance: none;
-            background: rgba(255,255,255,0.1);
+            background: rgba(45,42,38,0.85);
             color: #fff;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.25);
             border-radius: 4px;
-            padding: 6px 28px 6px 10px;
-            font-size: 16px;
+            padding: 8px 32px 8px 12px;
+            font-size: 13px;
+            font-family: 'Lato', sans-serif;
             cursor: pointer;
             transition: all 0.2s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
         .lang-selector select:hover {
-            background: rgba(255,255,255,0.15);
-            border-color: rgba(255,255,255,0.3);
+            background: rgba(45,42,38,0.95);
+            border-color: rgba(255,255,255,0.4);
         }
 
         .lang-selector select:focus {
@@ -2249,12 +2252,12 @@
         <div class="cover-top-bar">
             <div class="lang-selector">
                 <select id="langSelect" onchange="changeLanguage(this.value)">
-                    <option value="en">🇬🇧</option>
-                    <option value="zh">🇨🇳</option>
-                    <option value="th">🇹🇭</option>
-                    <option value="ja">🇯🇵</option>
-                    <option value="ru">🇷🇺</option>
-                    <option value="he">🇮🇱</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="th">🇹🇭 ไทย</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="he">🇮🇱 עברית</option>
                 </select>
             </div>
         </div>
