@@ -137,6 +137,7 @@
             align-items: flex-end;
             position: relative;
             overflow: hidden;
+            background: url('droneshot.jpg') center center / cover no-repeat;
         }
 
         .cover-video {
@@ -150,6 +151,12 @@
             transform: translate(-50%, -50%);
             object-fit: cover;
             z-index: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .cover-video.loaded {
+            opacity: 1;
         }
 
         .cover-top-bar {
@@ -2268,7 +2275,7 @@
 
     <!-- PAGE 1: COVER -->
     <div class="page page-cover">
-        <video class="cover-video" autoplay muted loop playsinline>
+        <video class="cover-video" autoplay muted loop playsinline poster="droneshot.jpg">
             <source src="dronionloop2-compressed.mp4" type="video/mp4">
         </video>
         <div class="cover-top-bar">
@@ -2694,6 +2701,18 @@
             lazyVideos.forEach(video => {
                 videoObserver.observe(video);
             });
+
+            // Fade in cover video when loaded
+            const coverVideo = document.querySelector('.cover-video');
+            if (coverVideo) {
+                coverVideo.addEventListener('canplay', function() {
+                    coverVideo.classList.add('loaded');
+                });
+                // In case video is already ready
+                if (coverVideo.readyState >= 3) {
+                    coverVideo.classList.add('loaded');
+                }
+            }
         });
 
         // Translations
