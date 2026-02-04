@@ -49,16 +49,8 @@
 
         /* Language selector */
         .lang-selector {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
+            position: relative;
             z-index: 10;
-        }
-
-        [lang="he"] .lang-selector {
-            right: auto;
-            left: 16px;
         }
 
         .lang-selector select {
@@ -163,14 +155,10 @@
             left: 0;
             right: 0;
             z-index: 3;
-            background: rgba(45,42,38,0.85);
-            padding: 14px 48px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            text-align: center;
+            padding: 16px 24px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
         }
 
         .cover-top-bar .cover-eyebrow {
@@ -191,11 +179,22 @@
             z-index: 3;
         }
 
+        .hero-proposal {
+            font-family: 'Lato', sans-serif;
+            font-size: 42px;
+            font-weight: 300;
+            color: #fff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.7), 0 4px 60px rgba(0,0,0,0.5);
+        }
+
         .cover-hero-title h1 {
             font-family: 'Lato', sans-serif;
-            font-size: 56px;
+            font-size: 32px;
             font-weight: 400;
-            color: #fff;
+            color: rgba(255,255,255,0.9);
             line-height: 1.2;
             letter-spacing: 1px;
             text-shadow: 0 2px 30px rgba(0,0,0,0.6), 0 4px 60px rgba(0,0,0,0.4);
@@ -203,10 +202,10 @@
 
         .cover-hero-title h1 span {
             display: block;
-            font-size: 28px;
+            font-size: 20px;
             font-weight: 300;
-            color: rgba(255,255,255,0.9);
-            margin-top: 12px;
+            color: rgba(255,255,255,0.75);
+            margin-top: 8px;
             text-shadow: 0 2px 20px rgba(0,0,0,0.5);
         }
 
@@ -1776,14 +1775,21 @@
                 right: 8px;
             }
 
+            .hero-proposal {
+                font-size: 24px;
+                letter-spacing: 2px;
+                margin-bottom: 12px;
+                padding: 0 20px;
+            }
+
             .cover-hero-title h1 {
-                font-size: 32px;
+                font-size: 20px;
                 padding: 0 20px;
             }
 
             .cover-hero-title h1 span {
-                font-size: 16px;
-                margin-top: 8px;
+                font-size: 14px;
+                margin-top: 6px;
             }
 
             .cover-content {
@@ -2191,7 +2197,6 @@
             <source src="dronionloop2-compressed.mp4" type="video/mp4">
         </video>
         <div class="cover-top-bar">
-            <p class="cover-eyebrow" data-i18n="sellerFinancing">Seller Financing Proposal</p>
             <div class="lang-selector">
                 <select id="langSelect" onchange="changeLanguage(this.value)">
                     <option value="en">🇬🇧</option>
@@ -2204,6 +2209,7 @@
             </div>
         </div>
         <div class="cover-hero-title">
+            <p class="hero-proposal" data-i18n="sellerFinancing">Seller Financing Proposal</p>
             <h1 data-i18n="heroTitle">Pai, Thailand – dream village / resort<span data-i18n="heroSubtitle">(land + houses)</span></h1>
         </div>
         <div class="cover-content">
