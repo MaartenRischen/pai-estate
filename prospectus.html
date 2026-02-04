@@ -2728,13 +2728,16 @@
                     preloadVideo.src = nextSrc;
 
                     preloadVideo.addEventListener('canplaythrough', function() {
-                        const currentTime = video.currentTime;
+                        const savedTime = video.currentTime;
                         const wasPlaying = !video.paused;
                         video.src = nextSrc;
-                        video.currentTime = currentTime;
-                        if (wasPlaying) video.play().catch(() => {});
-                        currentLevel++;
-                        setTimeout(upgradeQuality, 1000);
+                        video.load();
+                        video.addEventListener('loadeddata', function() {
+                            video.currentTime = savedTime;
+                            if (wasPlaying) video.play().catch(() => {});
+                            currentLevel++;
+                            setTimeout(upgradeQuality, 1000);
+                        }, { once: true });
                     }, { once: true });
 
                     preloadVideo.load();
