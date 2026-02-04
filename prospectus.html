@@ -186,8 +186,40 @@
             color: #fff;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-shadow: 0 2px 30px rgba(0,0,0,0.7), 0 4px 60px rgba(0,0,0,0.5);
+        }
+
+        .hero-financing {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.7);
+        }
+
+        .hero-split {
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .hero-pct {
+            font-size: 22px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .hero-amt {
+            font-weight: 500;
+            color: var(--sage-light);
+        }
+
+        .hero-divider {
+            color: rgba(255,255,255,0.4);
+            font-size: 20px;
         }
 
         .cover-hero-title h1 {
@@ -1776,14 +1808,32 @@
             }
 
             .hero-proposal {
-                font-size: 24px;
+                font-size: 20px;
                 letter-spacing: 2px;
-                margin-bottom: 12px;
+                margin-bottom: 10px;
                 padding: 0 20px;
             }
 
+            .hero-financing {
+                flex-direction: column;
+                gap: 6px;
+                margin-bottom: 14px;
+            }
+
+            .hero-split {
+                font-size: 14px;
+            }
+
+            .hero-pct {
+                font-size: 18px;
+            }
+
+            .hero-divider {
+                display: none;
+            }
+
             .cover-hero-title h1 {
-                font-size: 20px;
+                font-size: 18px;
                 padding: 0 20px;
             }
 
@@ -2210,6 +2260,11 @@
         </div>
         <div class="cover-hero-title">
             <p class="hero-proposal" data-i18n="sellerFinancing">Seller Financing Proposal</p>
+            <div class="hero-financing">
+                <span class="hero-split"><span class="hero-pct">30%</span> <span data-i18n="down">down</span> <span class="hero-amt">9M THB</span></span>
+                <span class="hero-divider">·</span>
+                <span class="hero-split"><span class="hero-pct">70%</span> <span data-i18n="financed">financed</span> <span class="hero-amt">21M THB</span></span>
+            </div>
             <h1 data-i18n="heroTitle">Pai, Thailand – dream village / resort<span data-i18n="heroSubtitle">(land + houses)</span></h1>
         </div>
         <div class="cover-content">
@@ -2635,6 +2690,8 @@
                 houses: "Houses",
                 shellLabel: "3-Floor Shell",
                 buildCapacity: "Build Capacity",
+                down: "down",
+                financed: "financed",
                 propertyOverview: "Property Overview",
                 atAGlance: "At a <em>Glance</em>",
                 galleryDesc: "7.5 Rai of prime land featuring 6 unique houses, a 3-story shell structure, and endless possibilities in Pai, Thailand.",
@@ -2729,6 +2786,8 @@
                 houses: "房屋",
                 shellLabel: "三层毛坯房",
                 buildCapacity: "建筑容量",
+                down: "首付",
+                financed: "融资",
                 propertyOverview: "物业概览",
                 atAGlance: "一目<em>了然</em>",
                 galleryDesc: "7.5莱优质土地，包含6栋独特房屋、一栋3层毛坯建筑，位于泰国拜县，无限可能。",
@@ -2823,6 +2882,8 @@
                 houses: "หลัง",
                 shellLabel: "โครงสร้าง 3 ชั้น",
                 buildCapacity: "ความจุในการก่อสร้าง",
+                down: "เงินดาวน์",
+                financed: "สินเชื่อ",
                 propertyOverview: "ภาพรวมอสังหาริมทรัพย์",
                 atAGlance: "มอง<em>ภาพรวม</em>",
                 galleryDesc: "ที่ดิน 7.5 ไร่ พร้อมบ้าน 6 หลังที่มีเอกลักษณ์ โครงสร้าง 3 ชั้น และความเป็นไปได้ไม่สิ้นสุดในปาย ประเทศไทย",
@@ -2917,6 +2978,8 @@
                 houses: "棟",
                 shellLabel: "3階建てシェル",
                 buildCapacity: "建築可能数",
+                down: "頭金",
+                financed: "ファイナンス",
                 propertyOverview: "物件概要",
                 atAGlance: "<em>一目</em>でわかる",
                 galleryDesc: "7.5ライの優良土地、6棟のユニークな住宅、3階建てシェル構造、タイ・パーイで無限の可能性。",
@@ -3011,6 +3074,8 @@
                 houses: "Домов",
                 shellLabel: "3-этажный каркас",
                 buildCapacity: "Возможность застройки",
+                down: "аванс",
+                financed: "финансируем",
                 propertyOverview: "Обзор недвижимости",
                 atAGlance: "С первого <em>взгляда</em>",
                 galleryDesc: "7.5 рай первоклассной земли с 6 уникальными домами, 3-этажным каркасом и безграничными возможностями в Пае, Таиланд.",
@@ -3105,6 +3170,8 @@
                 houses: "בתים",
                 shellLabel: "שלד 3 קומות",
                 buildCapacity: "יכולת בנייה",
+                down: "מקדמה",
+                financed: "מימון",
                 propertyOverview: "סקירת הנכס",
                 atAGlance: "במבט <em>אחד</em>",
                 galleryDesc: "7.5 ראי של קרקע מעולה הכוללת 6 בתים ייחודיים, מבנה שלד בן 3 קומות ואפשרויות אינסופיות בפאי, תאילנד.",
