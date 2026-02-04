@@ -2710,7 +2710,7 @@
                 videoObserver.observe(video);
             });
 
-            // Fade in cover video when loaded
+            // Fade in cover video when loaded, then progressively load HQ version
             const coverVideo = document.querySelector('.cover-video');
             if (coverVideo) {
                 coverVideo.addEventListener('canplay', function() {
@@ -2720,6 +2720,34 @@
                 if (coverVideo.readyState >= 3) {
                     coverVideo.classList.add('loaded');
                 }
+
+                // Preload HQ version in background after low-res is playing
+                coverVideo.addEventListener('playing', function onFirstPlay() {
+                    coverVideo.removeEventListener('playing', onFirstPlay);
+
+                    // Create hidden video to preload HQ version
+                    const hqVideo = document.createElement('video');
+                    hqVideo.muted = true;
+                    hqVideo.loop = true;
+                    hqVideo.playsInline = true;
+                    hqVideo.preload = 'auto';
+                    hqVideo.src = 'dronionloop2-hq.mp4';
+
+                    // When HQ video is ready, swap it in
+                    hqVideo.addEventListener('canplaythrough', function() {
+                        // Sync playback position
+                        hqVideo.currentTime = coverVideo.currentTime;
+                        hqVideo.play().then(() => {
+                            // Swap source seamlessly
+                            coverVideo.src = 'dronionloop2-hq.mp4';
+                            coverVideo.currentTime = hqVideo.currentTime;
+                            coverVideo.play();
+                        }).catch(() => {});
+                    }, { once: true });
+
+                    // Start loading
+                    hqVideo.load();
+                }, { once: true });
             }
         });
 
