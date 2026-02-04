@@ -1,0 +1,19 @@
+# Large original files not needed for web
+*.mov
+Onion-landingstrip.mp4
+dronionloop.mp4
+dronionloop2.mp4
+road.mp4
+road2.mp4
+
+# Python scripts and PDFs
+*.py
+*.pdf
+
+# Other unused files
+MISSION_BRIEF.md
+pai_village_estate_standalone.html
+Screenshot_*.png
+Onion-06688.JPG
+Onion-06704.JPG
+Onion-06753.JPG
