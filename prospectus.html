@@ -2661,8 +2661,8 @@
 
     <!-- PAGE 12: VIDEO SPREAD - LANDING STRIP -->
     <div class="page page-video-spread">
-        <video muted loop playsinline class="lazy-video">
-            <source src="Onion-landingstrip-mobile.mp4" type="video/mp4">
+        <video muted loop playsinline class="lazy-video progressive-video" data-quality-levels="Onion-landingstrip-mobile.mp4,Onion-landingstrip-hq.mp4">
+            <source src="Onion-landingstrip-low.mp4" type="video/mp4">
         </video>
         <div class="video-spread-caption">
             <p class="eyebrow" data-i18n="theApproach">The Approach</p>
@@ -2708,6 +2708,44 @@
 
             lazyVideos.forEach(video => {
                 videoObserver.observe(video);
+            });
+
+            // Progressive loading for videos with data-quality-levels attribute
+            document.querySelectorAll('.progressive-video').forEach(video => {
+                const qualityLevels = video.dataset.qualityLevels?.split(',') || [];
+                let currentLevel = 0;
+                let upgradeStarted = false;
+
+                function upgradeQuality() {
+                    if (currentLevel >= qualityLevels.length) return;
+
+                    const nextSrc = qualityLevels[currentLevel];
+                    const preloadVideo = document.createElement('video');
+                    preloadVideo.muted = true;
+                    preloadVideo.loop = true;
+                    preloadVideo.playsInline = true;
+                    preloadVideo.preload = 'auto';
+                    preloadVideo.src = nextSrc;
+
+                    preloadVideo.addEventListener('canplaythrough', function() {
+                        const currentTime = video.currentTime;
+                        const wasPlaying = !video.paused;
+                        video.src = nextSrc;
+                        video.currentTime = currentTime;
+                        if (wasPlaying) video.play().catch(() => {});
+                        currentLevel++;
+                        setTimeout(upgradeQuality, 1000);
+                    }, { once: true });
+
+                    preloadVideo.load();
+                }
+
+                video.addEventListener('playing', function() {
+                    if (!upgradeStarted) {
+                        upgradeStarted = true;
+                        upgradeQuality();
+                    }
+                });
             });
 
             // Fade in cover video when loaded, then progressively load better versions
