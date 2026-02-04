@@ -137,7 +137,7 @@
             align-items: flex-end;
             position: relative;
             overflow: hidden;
-            background: url('droneshot.jpg') center center / cover no-repeat;
+            background: #2d2a26 url('droneshot.jpg') center center / cover no-repeat;
         }
 
         .cover-video {
@@ -152,11 +152,13 @@
             object-fit: cover;
             z-index: 0;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0s;
         }
 
         .cover-video.loaded {
             opacity: 1;
+            visibility: visible;
         }
 
         .cover-top-bar {
@@ -2332,7 +2334,7 @@
                 <h1 data-i18n="atAGlance">At a <em>Glance</em></h1>
             </div>
             <div class="gallery-header-right">
-                <p data-i18n="galleryDesc">7.5 Rai of prime land featuring 6 unique houses, a 3-story shell structure, and endless possibilities in Pai, Thailand.</p>
+                <p data-i18n="galleryDesc">7.5 Rai (12,000 m²) of prime land featuring 6 unique houses, a 3-story shell structure (worth $300K USD), and endless possibilities in Pai, Thailand.</p>
             </div>
         </div>
 
@@ -2736,7 +2738,7 @@
                 financed: "financed",
                 propertyOverview: "Property Overview",
                 atAGlance: "At a <em>Glance</em>",
-                galleryDesc: "7.5 Rai of prime land featuring 6 unique houses, a 3-story shell structure, and endless possibilities in Pai, Thailand.",
+                galleryDesc: "7.5 Rai (12,000 m²) of prime land featuring 6 unique houses, a 3-story shell structure (worth $300K USD), and endless possibilities in Pai, Thailand.",
                 rai: "Rai",
                 detailedPhotos: "Detailed photos in the following pages →",
                 sellerFinancingAvailable: "Seller Financing Available",
@@ -2834,7 +2836,7 @@
                 financed: "融资",
                 propertyOverview: "物业概览",
                 atAGlance: "一目<em>了然</em>",
-                galleryDesc: "7.5莱优质土地，包含6栋独特房屋、一栋3层毛坯建筑，位于泰国拜县，无限可能。",
+                galleryDesc: "7.5莱（12,000平方米）优质土地，包含6栋独特房屋、一栋3层毛坯建筑（价值30万美元），位于泰国拜县，无限可能。",
                 rai: "莱",
                 detailedPhotos: "更多详细照片请见后续页面 →",
                 sellerFinancingAvailable: "提供卖方融资",
@@ -2932,7 +2934,7 @@
                 financed: "สินเชื่อ",
                 propertyOverview: "ภาพรวมอสังหาริมทรัพย์",
                 atAGlance: "มอง<em>ภาพรวม</em>",
-                galleryDesc: "ที่ดิน 7.5 ไร่ พร้อมบ้าน 6 หลังที่มีเอกลักษณ์ โครงสร้าง 3 ชั้น และความเป็นไปได้ไม่สิ้นสุดในปาย ประเทศไทย",
+                galleryDesc: "ที่ดิน 7.5 ไร่ (12,000 ตร.ม.) พร้อมบ้าน 6 หลังที่มีเอกลักษณ์ โครงสร้าง 3 ชั้น (มูลค่า $300K USD) และความเป็นไปได้ไม่สิ้นสุดในปาย ประเทศไทย",
                 rai: "ไร่",
                 detailedPhotos: "รูปภาพโดยละเอียดในหน้าถัดไป →",
                 sellerFinancingAvailable: "มีสินเชื่อจากผู้ขาย",
@@ -3030,7 +3032,7 @@
                 financed: "ファイナンス",
                 propertyOverview: "物件概要",
                 atAGlance: "<em>一目</em>でわかる",
-                galleryDesc: "7.5ライの優良土地、6棟のユニークな住宅、3階建てシェル構造、タイ・パーイで無限の可能性。",
+                galleryDesc: "7.5ライ（12,000㎡）の優良土地、6棟のユニークな住宅、3階建てシェル構造（30万ドル相当）、タイ・パーイで無限の可能性。",
                 rai: "ライ",
                 detailedPhotos: "詳細な写真は次のページへ →",
                 sellerFinancingAvailable: "売主ファイナンス利用可能",
@@ -3128,7 +3130,7 @@
                 financed: "финансируем",
                 propertyOverview: "Обзор недвижимости",
                 atAGlance: "С первого <em>взгляда</em>",
-                galleryDesc: "7.5 рай первоклассной земли с 6 уникальными домами, 3-этажным каркасом и безграничными возможностями в Пае, Таиланд.",
+                galleryDesc: "7.5 рай (12 000 м²) первоклассной земли с 6 уникальными домами, 3-этажным каркасом (стоимостью $300K) и безграничными возможностями в Пае, Таиланд.",
                 rai: "Рай",
                 detailedPhotos: "Подробные фотографии на следующих страницах →",
                 sellerFinancingAvailable: "Доступно финансирование от продавца",
@@ -3226,7 +3228,7 @@
                 financed: "מימון",
                 propertyOverview: "סקירת הנכס",
                 atAGlance: "במבט <em>אחד</em>",
-                galleryDesc: "7.5 ראי של קרקע מעולה הכוללת 6 בתים ייחודיים, מבנה שלד בן 3 קומות ואפשרויות אינסופיות בפאי, תאילנד.",
+                galleryDesc: "7.5 ראי (12,000 מ״ר) של קרקע מעולה הכוללת 6 בתים ייחודיים, מבנה שלד בן 3 קומות (בשווי $300K) ואפשרויות אינסופיות בפאי, תאילנד.",
                 rai: "ראי",
                 detailedPhotos: "← תמונות מפורטות בעמודים הבאים",
                 sellerFinancingAvailable: "מימון מהמוכר זמין",
