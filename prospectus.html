@@ -2710,7 +2710,7 @@
                 videoObserver.observe(video);
             });
 
-            // Fade in cover video when loaded, then progressively load HQ version
+            // Fade in cover video when loaded, then progressively load better versions
             const coverVideo = document.querySelector('.cover-video');
             if (coverVideo) {
                 coverVideo.addEventListener('canplay', function() {
@@ -2721,32 +2721,39 @@
                     coverVideo.classList.add('loaded');
                 }
 
-                // Preload HQ version in background after low-res is playing
-                coverVideo.addEventListener('playing', function onFirstPlay() {
-                    coverVideo.removeEventListener('playing', onFirstPlay);
+                // Progressive quality upgrade: 2MB → 9MB → 16MB
+                const qualityLevels = ['dronionloop2-hq.mp4', 'dronionloop2-uhq.mp4'];
+                let currentLevel = 0;
 
-                    // Create hidden video to preload HQ version
-                    const hqVideo = document.createElement('video');
-                    hqVideo.muted = true;
-                    hqVideo.loop = true;
-                    hqVideo.playsInline = true;
-                    hqVideo.preload = 'auto';
-                    hqVideo.src = 'dronionloop2-hq.mp4';
+                function upgradeQuality() {
+                    if (currentLevel >= qualityLevels.length) return;
 
-                    // When HQ video is ready, swap it in
-                    hqVideo.addEventListener('canplaythrough', function() {
-                        // Sync playback position
-                        hqVideo.currentTime = coverVideo.currentTime;
-                        hqVideo.play().then(() => {
-                            // Swap source seamlessly
-                            coverVideo.src = 'dronionloop2-hq.mp4';
-                            coverVideo.currentTime = hqVideo.currentTime;
-                            coverVideo.play();
-                        }).catch(() => {});
+                    const nextSrc = qualityLevels[currentLevel];
+                    const preloadVideo = document.createElement('video');
+                    preloadVideo.muted = true;
+                    preloadVideo.loop = true;
+                    preloadVideo.playsInline = true;
+                    preloadVideo.preload = 'auto';
+                    preloadVideo.src = nextSrc;
+
+                    preloadVideo.addEventListener('canplaythrough', function() {
+                        // Swap to higher quality
+                        const currentTime = coverVideo.currentTime;
+                        coverVideo.src = nextSrc;
+                        coverVideo.currentTime = currentTime;
+                        coverVideo.play().catch(() => {});
+                        currentLevel++;
+                        // Load next level after a short delay
+                        setTimeout(upgradeQuality, 1000);
                     }, { once: true });
 
-                    // Start loading
-                    hqVideo.load();
+                    preloadVideo.load();
+                }
+
+                // Start upgrading once low-res is playing
+                coverVideo.addEventListener('playing', function onFirstPlay() {
+                    coverVideo.removeEventListener('playing', onFirstPlay);
+                    upgradeQuality();
                 }, { once: true });
             }
         });
