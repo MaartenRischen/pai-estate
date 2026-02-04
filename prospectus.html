@@ -394,6 +394,22 @@
             text-transform: uppercase;
         }
 
+        /* Full-page image breaks */
+        .page-image-break {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            min-height: 210mm;
+        }
+
+        .page-image-break.image-rice {
+            background-image: url('Onion-06784.JPG');
+        }
+
+        .page-image-break.image-aframe {
+            background-image: url('Onion-06740.JPG');
+        }
+
         /* ═══════════════════════════════════════
            PAGE 3: FINANCING - EDITORIAL STYLE
            ═══════════════════════════════════════ */
@@ -2108,6 +2124,12 @@
                 background-size: cover;
             }
 
+            /* IMAGE BREAK PAGES */
+            .page-image-break {
+                min-height: auto;
+                aspect-ratio: 3/2;
+            }
+
             /* SHELL PAGE */
             .shell-overlay {
                 position: absolute;
@@ -2460,6 +2482,9 @@
         </div>
     </div>
 
+    <!-- IMAGE BREAK: Rice paddies -->
+    <div class="page page-image-break image-rice"></div>
+
     <!-- PAGE 4: OVERVIEW -->
     <div class="page page-overview">
         <div class="overview-left">
@@ -2493,6 +2518,9 @@
             </div>
         </div>
     </div>
+
+    <!-- IMAGE BREAK: A-Frame house -->
+    <div class="page page-image-break image-aframe"></div>
 
     <!-- PAGE 5: VISION -->
     <div class="page page-vision">
