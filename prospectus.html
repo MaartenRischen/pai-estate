@@ -3422,12 +3422,19 @@
             localStorage.setItem('preferredLanguage', lang);
         }
 
-        // Load saved language preference
+        // Load language from URL param (?lang=xx) or saved preference
         document.addEventListener('DOMContentLoaded', function() {
-            const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang && translations[savedLang]) {
-                document.getElementById('langSelect').value = savedLang;
-                changeLanguage(savedLang);
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            if (urlLang && translations[urlLang]) {
+                document.getElementById('langSelect').value = urlLang;
+                changeLanguage(urlLang);
+            } else {
+                const savedLang = localStorage.getItem('preferredLanguage');
+                if (savedLang && translations[savedLang]) {
+                    document.getElementById('langSelect').value = savedLang;
+                    changeLanguage(savedLang);
+                }
             }
         });
     </script>
