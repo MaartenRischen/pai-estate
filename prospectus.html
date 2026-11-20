@@ -2060,6 +2060,123 @@
             }
         }
 
+
+        /* ═══════════════════════════════════════
+           PAGE: THE BUILDING AS ITS OWN LOT
+           ═══════════════════════════════════════ */
+        .page-lot {
+            background: var(--deep);
+            display: flex;
+            align-items: stretch;
+            gap: 36px;
+            padding: 44px 48px;
+        }
+
+        .lot-text {
+            flex: 0 0 31%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .lot-eyebrow {
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--sage-light);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .lot-text h2 {
+            font-size: 30px;
+            font-weight: 400;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .lot-text p {
+            font-size: 13.5px;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.65;
+            margin-bottom: 12px;
+        }
+
+        .lot-btn {
+            align-self: flex-start;
+            margin-top: 14px;
+            padding: 12px 22px;
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid var(--sage-light);
+            transition: all 0.2s ease;
+        }
+
+        .lot-btn:hover { background: rgba(107,127,114,0.3); }
+
+        .lot-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 10px;
+            min-height: 0;
+        }
+
+        .lot-thumb {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            min-height: 0;
+        }
+
+        .lot-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .lot-thumb:hover img { transform: scale(1.03); }
+
+        .lot-tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #fff;
+            background: rgba(42,53,48,0.82);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 3px 7px;
+        }
+
+        [lang="he"] .lot-tag { left: auto; right: 8px; }
+        [lang="he"] .lot-text { text-align: right; }
+
+        @media screen and (max-width: 900px) {
+            .page-lot {
+                flex-direction: column;
+                gap: 24px;
+                padding: 48px 20px;
+                min-height: 0;
+            }
+            .lot-text { flex: none; }
+            .lot-text h2 { font-size: 26px; }
+            .lot-text p { font-size: 15px; }
+            .lot-grid {
+                flex: none;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: none;
+            }
+            .lot-thumb { aspect-ratio: 4 / 3; }
+        }
+
         @media print {
             body { background: white; }
             .page {
@@ -2170,6 +2287,25 @@
             <p data-i18n="shellP1">A large circular three-storey building. The structure is built, the interior is not finished. The first floor has a big open-air garden room, the second floor has living spaces. It was originally designed as a penthouse, and in 2023 acoustic drawings were made for a recording studio on one floor.</p>
             <p data-i18n="shellP2">The top floor has wide valley views. It could become a private home, a studio or a community space. The building has its own chanote, so it can be bought separately with its land. Permit and structural details on request.</p>
             <div class="shell-value-tag" data-i18n="shellValue">Cost about $150,000 USD to build</div>
+        </div>
+    </div>
+
+    <!-- PAGE: THE BUILDING AS ITS OWN LOT -->
+    <div class="page page-lot">
+        <div class="lot-text">
+            <div class="lot-eyebrow" data-i18n="lotPageEyebrow">Also sold separately</div>
+            <h2 data-i18n="lotPageTitle">The building as its own lot</h2>
+            <p data-i18n="lotPageP1">You can buy the three-storey building without the rest of the estate. The lot is the building, the land it stands on with its own chanote, and the strip of land across the road from it.</p>
+            <p data-i18n="lotPageP2">These images show ways it could be finished. They are concept images made with AI, not photos. Price for this lot on request.</p>
+            <a class="lot-btn" href="building.html" data-i18n="lotPageBtn">See the building page</a>
+        </div>
+        <div class="lot-grid">
+            <a class="lot-thumb" href="building.html"><img src="concept-01-s.jpg" alt="Concept image: thatch roof and earth plaster" loading="lazy"><span class="lot-tag" data-i18n="cTag">Concept</span></a>
+            <a class="lot-thumb" href="building.html"><img src="concept-02-s.jpg" alt="Concept image: dark stone and timber" loading="lazy"><span class="lot-tag" data-i18n="cTag">Concept</span></a>
+            <a class="lot-thumb" href="building.html"><img src="concept-05-s.jpg" alt="Concept image: white plaster and timber windows" loading="lazy"><span class="lot-tag" data-i18n="cTag">Concept</span></a>
+            <a class="lot-thumb" href="building.html"><img src="concept-04-s.jpg" alt="Concept image: clay tile roof and bamboo blinds" loading="lazy"><span class="lot-tag" data-i18n="cTag">Concept</span></a>
+            <a class="lot-thumb" href="building.html"><img src="concept-11-s.jpg" alt="Concept image: black timber and a metal roof" loading="lazy"><span class="lot-tag" data-i18n="cTag">Concept</span></a>
+            <a class="lot-thumb" href="building.html"><img src="concept-12-s.jpg" alt="Concept image: bamboo balconies" loading="lazy"><span class="lot-tag" data-i18n="cTag">Concept</span></a>
         </div>
     </div>
 
@@ -2569,6 +2705,12 @@
         // Translations
         const translations = {
             en: {
+                lotPageEyebrow: "Also sold separately",
+                lotPageTitle: "The building as its own lot",
+                lotPageP1: "You can buy the three-storey building without the rest of the estate. The lot is the building, the land it stands on with its own chanote, and the strip of land across the road from it.",
+                lotPageP2: "These images show ways it could be finished. They are concept images made with AI, not photos. Price for this lot on request.",
+                lotPageBtn: "See the building page",
+                cTag: "Concept",
                 sellerFinancing: "Seller Financing Available",
                 heroTitle: "Pai, Thailand – property for sale",
                 heroSubtitle: "(land, 6 houses + a three-storey building)",
@@ -2667,6 +2809,12 @@
                 emailBtn: "Email"
             },
             zh: {
+                lotPageEyebrow: "也可单独出售",
+                lotPageTitle: "三层建筑作为独立地块",
+                lotPageP1: "三层建筑可以不连同庄园其余部分单独购买。这个地块包括建筑本身、建筑所在并有独立地契的土地，以及马路对面的那一条狭长土地。",
+                lotPageP2: "这些图片展示了它可以怎样完工。它们是用AI制作的概念图，不是照片。这个地块的价格面议。",
+                lotPageBtn: "查看建筑页面",
+                cTag: "概念图",
                 sellerFinancing: "可提供卖方融资",
                 heroTitle: "泰国拜县 – 房产出售",
                 heroSubtitle: "(土地、6栋房屋 + 一栋三层建筑)",
@@ -2765,6 +2913,12 @@
                 emailBtn: "电子邮件"
             },
             th: {
+                lotPageEyebrow: "ขายแยกได้ด้วย",
+                lotPageTitle: "อาคารเป็นแปลงแยก",
+                lotPageP1: "คุณซื้ออาคาร 3 ชั้นโดยไม่ซื้อที่ดินส่วนอื่นก็ได้ แปลงนี้ประกอบด้วยตัวอาคาร ที่ดินที่อาคารตั้งอยู่ซึ่งมีโฉนดแยก และที่ดินแถบเล็กฝั่งตรงข้ามถนน",
+                lotPageP2: "ภาพเหล่านี้แสดงแนวทางการตกแต่งให้เสร็จ เป็นภาพแนวคิดที่ทำด้วย AI ไม่ใช่ภาพถ่าย ราคาแปลงนี้สอบถามได้",
+                lotPageBtn: "ดูหน้าของอาคาร",
+                cTag: "ภาพแนวคิด",
                 sellerFinancing: "มีสินเชื่อจากผู้ขาย",
                 heroTitle: "ปาย, ประเทศไทย – ขายที่ดินพร้อมบ้าน",
                 heroSubtitle: "(ที่ดิน บ้าน 6 หลัง + อาคาร 3 ชั้น)",
@@ -2863,6 +3017,12 @@
                 emailBtn: "อีเมล"
             },
             ja: {
+                lotPageEyebrow: "単独でも購入可能",
+                lotPageTitle: "建物を独立した区画として",
+                lotPageP1: "3階建ての建物は、敷地の他の部分なしで購入できます。区画に含まれるのは、建物、建物が建つ専用チャノート付きの土地、道路の向かい側の細長い土地です。",
+                lotPageP2: "これらの画像は仕上げ方の例です。AIで作成したコンセプト画像で、写真ではありません。この区画の価格は応相談です。",
+                lotPageBtn: "建物のページを見る",
+                cTag: "コンセプト",
                 sellerFinancing: "売主ファイナンス可能",
                 heroTitle: "タイ・パーイ – 物件売却",
                 heroSubtitle: "(土地、住宅6棟 + 3階建ての建物)",
@@ -2961,6 +3121,12 @@
                 emailBtn: "メール"
             },
             ru: {
+                lotPageEyebrow: "Продаётся и отдельно",
+                lotPageTitle: "Здание как отдельный лот",
+                lotPageP1: "Трёхэтажное здание можно купить без остального поместья. В лот входят само здание, земля под ним с собственным чанотом и полоса земли через дорогу от него.",
+                lotPageP2: "Эти изображения показывают варианты отделки. Это концепт-изображения, сделанные с помощью ИИ, а не фотографии. Цена этого лота по запросу.",
+                lotPageBtn: "Страница здания",
+                cTag: "Концепт",
                 sellerFinancing: "Рассрочка от продавца",
                 heroTitle: "Пай, Таиланд – продажа недвижимости",
                 heroSubtitle: "(земля, 6 домов + трёхэтажное здание)",
@@ -3059,6 +3225,12 @@
                 emailBtn: "Эл. почта"
             },
             he: {
+                lotPageEyebrow: "נמכר גם בנפרד",
+                lotPageTitle: "הבניין כחלקה נפרדת",
+                lotPageP1: "אפשר לקנות את הבניין בן 3 הקומות בלי שאר הנכס. החלקה כוללת את הבניין, את הקרקע שעליה הוא עומד עם צ'אנוט נפרד, ואת רצועת הקרקע שמעבר לכביש.",
+                lotPageP2: "התמונות מראות איך אפשר לגמור אותו. אלה הדמיות שנוצרו בבינה מלאכותית, לא צילומים. מחיר החלקה לפי בקשה.",
+                lotPageBtn: "לעמוד הבניין",
+                cTag: "הדמיה",
                 sellerFinancing: "מימון מהמוכר אפשרי",
                 heroTitle: "פאי, תאילנד – נכס למכירה",
                 heroSubtitle: "(קרקע, 6 בתים + בניין בן 3 קומות)",
@@ -3168,6 +3340,11 @@
                 if (translations[lang] && translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
                 }
+            });
+
+            // Links to the building page open in the same language
+            document.querySelectorAll('a[href^="building.html"]').forEach(a => {
+                a.href = 'building.html?lang=' + lang;
             });
 
             // Save preference
