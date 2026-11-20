@@ -239,6 +239,16 @@
             min-width: 14px;
         }
 
+        .plot-map { margin-top: 56px; }
+        .plot-map img { width: 100%; height: auto; }
+        .plot-map figcaption { margin-top: 16px; font-size: 14px; color: var(--text-light); }
+        .map-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 28px; margin-bottom: 8px; font-size: 16px; color: var(--text-dark); }
+        .map-legend li { display: flex; align-items: center; gap: 10px; }
+        .map-legend .key { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #181e1b; border: 2px solid #181e1b; }
+        .map-legend .key-a { background: #ffc400; }
+        .map-legend .key-b { background: #00dcff; }
+        .map-legend .key-dot { width: 16px; height: 16px; margin: 0 5px; background: #fff; }
+
         /* Today */
         .today { background: var(--cream); }
 
@@ -469,7 +479,21 @@
                 <li data-i18n="item1">The three-storey building</li>
                 <li data-i18n="item2">The land it stands on, with its own chanote</li>
                 <li data-i18n="item3">The strip of land across the road</li>
+                <li data-i18n="item4">A small house with bathroom and kitchen</li>
             </ol>
+        </div>
+        <div class="wrap">
+            <figure class="plot-map">
+                <img src="plots-map.jpg" alt="Aerial view with the two plots outlined" width="1500" height="1010" loading="lazy">
+                <figcaption>
+                    <ul class="map-legend">
+                        <li><span class="key key-a">A</span><span data-i18n="mapA">Building plot, with the three-storey building and the small house</span></li>
+                        <li><span class="key key-b">B</span><span data-i18n="mapB">Strip of land across the road</span></li>
+                        <li><span class="key key-dot"></span><span data-i18n="mapDot">Three-storey building</span></li>
+                    </ul>
+                    <p data-i18n="mapNote">Outlines are approximate.</p>
+                </figcaption>
+            </figure>
         </div>
     </section>
 
@@ -650,6 +674,11 @@
                 "item1": "The three-storey building",
                 "item2": "The land it stands on, with its own chanote",
                 "item3": "The strip of land across the road",
+                "item4": "A small house with bathroom and kitchen",
+                "mapA": "Building plot, with the three-storey building and the small house",
+                "mapB": "Strip of land across the road",
+                "mapDot": "Three-storey building",
+                "mapNote": "Outlines are approximate.",
                 "todayEyebrow": "As it is now",
                 "todayTitle": "The building today",
                 "todayP2": "It stands in the forest, close to the river. The lower floors look into the trees and the top floor looks out over the valley.",
@@ -706,6 +735,11 @@
                 "item1": "三层建筑",
                 "item2": "建筑所在的土地，有独立地契",
                 "item3": "马路对面的狭长土地",
+                "item4": "一栋带浴室和厨房的小房子",
+                "mapA": "建筑地块，包括三层建筑和小房子",
+                "mapB": "马路对面的狭长土地",
+                "mapDot": "三层建筑",
+                "mapNote": "边界线为大致位置。",
                 "todayEyebrow": "现状",
                 "todayTitle": "建筑的现状",
                 "todayP2": "建筑位于树林中，靠近河流。下面两层面向树林，顶层可以俯瞰山谷。",
@@ -762,6 +796,11 @@
                 "item1": "อาคาร 3 ชั้น",
                 "item2": "ที่ดินที่อาคารตั้งอยู่ พร้อมโฉนดแยก",
                 "item3": "ที่ดินแถบเล็กฝั่งตรงข้ามถนน",
+                "item4": "บ้านหลังเล็ก มีห้องน้ำและห้องครัว",
+                "mapA": "แปลงอาคาร มีอาคาร 3 ชั้นและบ้านหลังเล็ก",
+                "mapB": "ที่ดินแถบเล็กฝั่งตรงข้ามถนน",
+                "mapDot": "อาคาร 3 ชั้น",
+                "mapNote": "เส้นแนวเขตเป็นตำแหน่งโดยประมาณ",
                 "todayEyebrow": "สภาพปัจจุบัน",
                 "todayTitle": "อาคารในวันนี้",
                 "todayP2": "อาคารตั้งอยู่ในป่า ใกล้แม่น้ำ ชั้นล่างมองเห็นต้นไม้ ชั้นบนสุดมองเห็นหุบเขา",
@@ -818,6 +857,11 @@
                 "item1": "3階建ての建物",
                 "item2": "建物が建つ土地（専用のチャノート付き）",
                 "item3": "道路の向かい側の細長い土地",
+                "item4": "バスルームとキッチン付きの小さな家",
+                "mapA": "建物の区画（3階建ての建物と小さな家）",
+                "mapB": "道路の向かい側の細長い土地",
+                "mapDot": "3階建ての建物",
+                "mapNote": "境界線はおおよその位置です。",
                 "todayEyebrow": "現状",
                 "todayTitle": "現在の建物",
                 "todayP2": "建物は森の中、川の近くに建っています。下の階からは木々が見え、最上階からは谷を見渡せます。",
@@ -874,6 +918,11 @@
                 "item1": "Трёхэтажное здание",
                 "item2": "Земля под зданием, с собственным чанотом",
                 "item3": "Полоса земли через дорогу",
+                "item4": "Небольшой дом с ванной и кухней",
+                "mapA": "Участок со зданием: трёхэтажное здание и небольшой дом",
+                "mapB": "Полоса земли через дорогу",
+                "mapDot": "Трёхэтажное здание",
+                "mapNote": "Границы показаны приблизительно.",
                 "todayEyebrow": "Как сейчас",
                 "todayTitle": "Здание сегодня",
                 "todayP2": "Здание стоит в лесу, рядом с рекой. Нижние этажи смотрят на деревья, с верхнего этажа открывается вид на долину.",
@@ -930,6 +979,11 @@
                 "item1": "הבניין בן 3 הקומות",
                 "item2": "הקרקע שעליה הוא עומד, עם צ'אנוט נפרד",
                 "item3": "רצועת הקרקע שמעבר לכביש",
+                "item4": "בית קטן עם חדר רחצה ומטבח",
+                "mapA": "חלקת הבניין, עם הבניין בן 3 הקומות והבית הקטן",
+                "mapB": "רצועת הקרקע שמעבר לכביש",
+                "mapDot": "הבניין בן 3 הקומות",
+                "mapNote": "קווי הגבול משוערים.",
                 "todayEyebrow": "המצב היום",
                 "todayTitle": "הבניין היום",
                 "todayP2": "הבניין עומד בתוך היער, קרוב לנהר. הקומות התחתונות פונות אל העצים, ומהקומה העליונה רואים את העמק.",

@@ -2177,6 +2177,80 @@
             .lot-thumb { aspect-ratio: 4 / 3; }
         }
 
+
+        /* ═══════════════════════════════════════
+           PAGE: MAP OF THE TWO PLOTS
+           ═══════════════════════════════════════ */
+        .page-lotmap { background: var(--deep); }
+
+        .page-lotmap > img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .lotmap-overlay {
+            position: absolute;
+            bottom: 32px;
+            left: 32px;
+            max-width: 330px;
+            background: rgba(36,44,40,0.88);
+            padding: 24px 28px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .lotmap-overlay h2 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+
+        .map-legend {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.88);
+            line-height: 1.4;
+        }
+
+        .map-legend li { display: flex; align-items: center; gap: 10px; }
+
+        .map-legend .key {
+            flex: 0 0 auto;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: #181e1b;
+            border: 2px solid #181e1b;
+        }
+
+        .map-legend .key-a { background: #ffc400; }
+        .map-legend .key-b { background: #00dcff; }
+        .map-legend .key-dot { width: 14px; height: 14px; margin: 0 5px; background: #fff; }
+
+        .lotmap-note { margin-top: 12px; font-size: 11px; color: rgba(255,255,255,0.6); }
+
+        [lang="he"] .lotmap-overlay { left: auto; right: 32px; text-align: right; }
+
+        @media screen and (max-width: 900px) {
+            .page-lotmap { min-height: 0; }
+            .page-lotmap > img { position: static; height: auto; }
+            .lotmap-overlay { position: static; max-width: none; border: 0; padding: 24px 20px 36px; background: none; }
+            .map-legend { font-size: 15px; }
+            .lotmap-note { font-size: 13px; }
+        }
+
         @media print {
             body { background: white; }
             .page {
@@ -2305,6 +2379,20 @@
             <a class="lot-thumb" href="building.html"><img src="concept-04-s.jpg" alt="Concept image: clay tile roof and bamboo blinds" loading="lazy"><span class="lot-tag" data-i18n="cTag">Concept</span></a>
             <a class="lot-thumb" href="building.html"><img src="concept-11-s.jpg" alt="Concept image: black timber and a metal roof" loading="lazy"><span class="lot-tag" data-i18n="cTag">Concept</span></a>
             <a class="lot-thumb" href="building.html"><img src="concept-12-s.jpg" alt="Concept image: bamboo balconies" loading="lazy"><span class="lot-tag" data-i18n="cTag">Concept</span></a>
+        </div>
+    </div>
+
+    <!-- PAGE: MAP OF THE TWO PLOTS -->
+    <div class="page page-lotmap">
+        <img src="plots-map.jpg" alt="Aerial view with the two plots outlined" loading="lazy">
+        <div class="lotmap-overlay">
+            <h2 data-i18n="mapTitle">The two plots</h2>
+            <ul class="map-legend">
+                <li><span class="key key-a">A</span><span data-i18n="mapA">Building plot, with the three-storey building and the small house</span></li>
+                <li><span class="key key-b">B</span><span data-i18n="mapB">Strip of land across the road</span></li>
+                <li><span class="key key-dot"></span><span data-i18n="mapDot">Three-storey building</span></li>
+            </ul>
+            <p class="lotmap-note" data-i18n="mapNote">Outlines are approximate.</p>
         </div>
     </div>
 
@@ -2704,6 +2792,11 @@
         // Translations
         const translations = {
             en: {
+                mapTitle: "The two plots",
+                mapA: "Building plot, with the three-storey building and the small house",
+                mapB: "Strip of land across the road",
+                mapDot: "Three-storey building",
+                mapNote: "Outlines are approximate.",
                 lotPageEyebrow: "Also sold separately",
                 lotPageTitle: "The building as its own lot",
                 lotPageP1: "You can buy the three-storey building without the rest of the estate. The lot is the building, the land it stands on with its own chanote, and the strip of land across the road from it.",
@@ -2807,6 +2900,11 @@
                 emailBtn: "Email"
             },
             zh: {
+                mapTitle: "两块地",
+                mapA: "建筑地块，包括三层建筑和小房子",
+                mapB: "马路对面的狭长土地",
+                mapDot: "三层建筑",
+                mapNote: "边界线为大致位置。",
                 lotPageEyebrow: "也可单独出售",
                 lotPageTitle: "三层建筑作为独立地块",
                 lotPageP1: "三层建筑可以不连同庄园其余部分单独购买。这个地块包括建筑本身、建筑所在并有独立地契的土地，以及马路对面的那一条狭长土地。",
@@ -2910,6 +3008,11 @@
                 emailBtn: "电子邮件"
             },
             th: {
+                mapTitle: "ที่ดินสองแปลง",
+                mapA: "แปลงอาคาร มีอาคาร 3 ชั้นและบ้านหลังเล็ก",
+                mapB: "ที่ดินแถบเล็กฝั่งตรงข้ามถนน",
+                mapDot: "อาคาร 3 ชั้น",
+                mapNote: "เส้นแนวเขตเป็นตำแหน่งโดยประมาณ",
                 lotPageEyebrow: "ขายแยกได้ด้วย",
                 lotPageTitle: "อาคารเป็นแปลงแยก",
                 lotPageP1: "คุณซื้ออาคาร 3 ชั้นโดยไม่ซื้อที่ดินส่วนอื่นก็ได้ แปลงนี้ประกอบด้วยตัวอาคาร ที่ดินที่อาคารตั้งอยู่ซึ่งมีโฉนดแยก และที่ดินแถบเล็กฝั่งตรงข้ามถนน",
@@ -3013,6 +3116,11 @@
                 emailBtn: "อีเมล"
             },
             ja: {
+                mapTitle: "2つの区画",
+                mapA: "建物の区画（3階建ての建物と小さな家）",
+                mapB: "道路の向かい側の細長い土地",
+                mapDot: "3階建ての建物",
+                mapNote: "境界線はおおよその位置です。",
                 lotPageEyebrow: "単独でも購入可能",
                 lotPageTitle: "建物を独立した区画として",
                 lotPageP1: "3階建ての建物は、敷地の他の部分なしで購入できます。区画に含まれるのは、建物、建物が建つ専用チャノート付きの土地、道路の向かい側の細長い土地です。",
@@ -3116,6 +3224,11 @@
                 emailBtn: "メール"
             },
             ru: {
+                mapTitle: "Два участка",
+                mapA: "Участок со зданием: трёхэтажное здание и небольшой дом",
+                mapB: "Полоса земли через дорогу",
+                mapDot: "Трёхэтажное здание",
+                mapNote: "Границы показаны приблизительно.",
                 lotPageEyebrow: "Продаётся и отдельно",
                 lotPageTitle: "Здание как отдельный лот",
                 lotPageP1: "Трёхэтажное здание можно купить без остального поместья. В лот входят само здание, земля под ним с собственным чанотом и полоса земли через дорогу от него.",
@@ -3219,6 +3332,11 @@
                 emailBtn: "Эл. почта"
             },
             he: {
+                mapTitle: "שתי החלקות",
+                mapA: "חלקת הבניין, עם הבניין בן 3 הקומות והבית הקטן",
+                mapB: "רצועת הקרקע שמעבר לכביש",
+                mapDot: "הבניין בן 3 הקומות",
+                mapNote: "קווי הגבול משוערים.",
                 lotPageEyebrow: "נמכר גם בנפרד",
                 lotPageTitle: "הבניין כחלקה נפרדת",
                 lotPageP1: "אפשר לקנות את הבניין בן 3 הקומות בלי שאר הנכס. החלקה כוללת את הבניין, את הקרקע שעליה הוא עומד עם צ'אנוט נפרד, ואת רצועת הקרקע שמעבר לכביש.",
